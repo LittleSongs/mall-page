@@ -26,6 +26,37 @@
         <span class="core"></span>
       </div>
     </section>
+
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <p class="eyebrow">Contact us</p>
+        <h2 id="contact-title">Send us a message</h2>
+        <p>
+          Leave your contact information and our team will get back to you as soon as possible.
+        </p>
+      </div>
+
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="eb95beba-a677-4d5b-9bd4-7a562397e2fd" />
+
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Your name" required />
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="message" placeholder="Tell us how we can help" required></textarea>
+        </label>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   </main>
 </template>
 
@@ -186,6 +217,110 @@ h1 {
     inset 0 0 0 1px rgba(255, 255, 255, 0.74);
 }
 
+.contact-section {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 18px 0 78px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 0.9fr);
+  gap: clamp(32px, 7vw, 92px);
+  align-items: start;
+}
+
+.contact-copy {
+  max-width: 440px;
+}
+
+.contact-copy h2 {
+  color: #10221f;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 820;
+  line-height: 1.02;
+}
+
+.contact-copy p:not(.eyebrow) {
+  margin-top: 18px;
+  color: #526961;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  border: 1px solid rgba(29, 120, 103, 0.14);
+  border-radius: 24px;
+  padding: clamp(20px, 4vw, 30px);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 30px 70px rgba(37, 103, 91, 0.11);
+  backdrop-filter: blur(18px);
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form span {
+  color: #214940;
+  font-size: 0.86rem;
+  font-weight: 760;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(29, 120, 103, 0.18);
+  border-radius: 14px;
+  padding: 14px 15px;
+  color: #10221f;
+  background: rgba(255, 255, 255, 0.82);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-form textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #82948e;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(29, 140, 114, 0.58);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(29, 140, 114, 0.1);
+}
+
+.contact-form button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #10221f;
+  cursor: pointer;
+  font-weight: 780;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #145f52;
+  box-shadow: 0 18px 34px rgba(20, 95, 82, 0.2);
+  transform: translateY(-1px);
+}
+
 @media (max-width: 760px) {
   .hero {
     width: min(100% - 28px, 620px);
@@ -212,6 +347,13 @@ h1 {
     bottom: 12px;
     width: 430px;
     opacity: 0.36;
+  }
+
+  .contact-section {
+    width: min(100% - 28px, 620px);
+    padding: 4px 0 54px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
@@ -248,6 +390,15 @@ h1 {
 
   .contact-link {
     overflow-wrap: anywhere;
+  }
+
+  .contact-section {
+    width: min(100% - 24px, 420px);
+    padding-bottom: 42px;
+  }
+
+  .contact-form {
+    border-radius: 20px;
   }
 }
 </style>
